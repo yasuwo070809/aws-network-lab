@@ -1,0 +1,43 @@
+# captured 2026-09-15T21:11:33Z
+----------------------------------------------------------------------------------------------------------------------
+|                                             DescribeSecurityGroupRules                                             |
++--------------------------------------------------------------------------------------------------------------------+
+||                                                SecurityGroupRules                                                ||
+|+------------------------+-----------------------------------------------------------------------------------------+|
+||  CidrIpv4              |  0.0.0.0/0                                                                              ||
+||  Description           |  HTTP - web server under test                                                           ||
+||  FromPort              |  80                                                                                     ||
+||  GroupId               |  sg-07fddc86c8475f82e                                                                   ||
+||  GroupOwnerId          |  <ACCOUNT_ID>                                                                           ||
+||  IpProtocol            |  tcp                                                                                    ||
+||  IsEgress              |  False                                                                                  ||
+||  SecurityGroupRuleArn  |  arn:aws:ec2:ap-northeast-1:<ACCOUNT_ID>:security-group-rule/sgr-024427e57ff5a2da8      ||
+||  SecurityGroupRuleId   |  sgr-024427e57ff5a2da8                                                                  ||
+||  ToPort                |  80                                                                                     ||
+|+------------------------+-----------------------------------------------------------------------------------------+|
+||                                                SecurityGroupRules                                                ||
+|+----------------------+-------------------------------------------------------------------------------------------+|
+||  CidrIpv4            |  16.76.33.91/32                                                                           ||
+||  Description         |  SSH from current admin global IP (auto-detected unless ssh_ingress_cidr is overridden)   ||
+||  FromPort            |  22                                                                                       ||
+||  GroupId             |  sg-07fddc86c8475f82e                                                                     ||
+||  GroupOwnerId        |  <ACCOUNT_ID>                                                                             ||
+||  IpProtocol          |  tcp                                                                                      ||
+||  IsEgress            |  False                                                                                    ||
+||  SecurityGroupRuleArn|  arn:aws:ec2:ap-northeast-1:<ACCOUNT_ID>:security-group-rule/sgr-0beadc12a35645737        ||
+||  SecurityGroupRuleId |  sgr-0beadc12a35645737                                                                    ||
+||  ToPort              |  22                                                                                       ||
+|+----------------------+-------------------------------------------------------------------------------------------+|
+||                                                SecurityGroupRules                                                ||
+|+------------------------+-----------------------------------------------------------------------------------------+|
+||  CidrIpv4              |  0.0.0.0/0                                                                              ||
+||  Description           |  All outbound                                                                           ||
+||  FromPort              |  -1                                                                                     ||
+||  GroupId               |  sg-07fddc86c8475f82e                                                                   ||
+||  GroupOwnerId          |  <ACCOUNT_ID>                                                                           ||
+||  IpProtocol            |  -1                                                                                     ||
+||  IsEgress              |  True                                                                                   ||
+||  SecurityGroupRuleArn  |  arn:aws:ec2:ap-northeast-1:<ACCOUNT_ID>:security-group-rule/sgr-0725d0f2725b7198c      ||
+||  SecurityGroupRuleId   |  sgr-0725d0f2725b7198c                                                                  ||
+||  ToPort                |  -1                                                                                     ||
+|+------------------------+-----------------------------------------------------------------------------------------+|

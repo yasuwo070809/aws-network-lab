@@ -1,0 +1,11 @@
+# captured 2026-09-15T21:11:18Z
+HTTP/1.1 200 OK
+Date: Tue, 15 Sep 2026 21:11:18 GMT
+Server: Apache/2.4.68 (Amazon Linux)
+Last-Modified: Tue, 15 Sep 2026 20:38:13 GMT
+ETag: "55-65b8b879ab612"
+Accept-Ranges: bytes
+Content-Length: 85
+Content-Type: text/html; charset=UTF-8
+
+<h1>aws-network-lab public EC2 (ip-10-10-1-234.ap-northeast-1.compute.internal)</h1>

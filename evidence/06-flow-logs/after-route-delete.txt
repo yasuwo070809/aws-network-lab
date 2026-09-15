@@ -1,0 +1,16 @@
+# captured 2026-09-16T21:10:11Z (retested after initial capture, see note)
+# Immediately after `aws ec2 delete-route` returned, curl still got
+# http_status=200 (route table change had not yet propagated). Retested
+# every ~9s for 5 attempts, all blocked from the first retry:
+attempt 1: 21:09:34 -> curl: (28) Connection timed out after 6003 milliseconds / http_status=000
+attempt 2: 21:09:43 -> curl: (28) Connection timed out after 6009 milliseconds / http_status=000
+attempt 3: 21:09:52 -> curl: (28) Connection timed out after 6003 milliseconds / http_status=000
+attempt 4: 21:10:02 -> curl: (28) Connection timed out after 6006 milliseconds / http_status=000
+attempt 5: 21:10:11 -> curl: (28) Connection timed out after 6005 milliseconds / http_status=000
+
+# Unlike the SG-deny and NACL-deny tests, this failure mode is NOT specific to
+# HTTP: with no 0.0.0.0/0 route, the instance cannot reach ANY internet
+# destination (and the internet cannot reach it), so SSH would fail too -
+# not tested here to avoid losing the ability to restore via SSH-dependent
+# tooling; restoration was done purely via `terraform apply` over the AWS API,
+# which does not depend on instance-level network reachability.

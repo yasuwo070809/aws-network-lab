@@ -1,0 +1,2 @@
+# captured 2026-09-15T21:11:35Z
+(the SG only has one inbound rule for port 80; the response traffic back to the client is allowed automatically because Security Groups are stateful)

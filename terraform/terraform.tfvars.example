@@ -1,0 +1,20 @@
+# Copy this file to terraform.tfvars (gitignored) and adjust as needed.
+# terraform.tfvars itself is never committed - see ../.gitignore.
+
+aws_region  = "ap-northeast-1"
+aws_profile = "default"
+
+# Path to a LOCAL public key file. Generate a dedicated keypair for this lab,
+# e.g.:
+#   ssh-keygen -t ed25519 -f ~/.ssh/aws-network-lab -C "aws-network-lab"
+# Only the .pub file is referenced here - the private key never leaves your
+# machine and is never read by Terraform.
+ssh_public_key_path = "~/.ssh/aws-network-lab.pub"
+
+# Leave commented out to auto-detect your current global IP as /32 at apply
+# time (recommended). Uncomment only if you need to pin a specific CIDR.
+# ssh_ingress_cidr = "203.0.113.10/32"
+
+# Verification 5 (Session Manager) only - see docs/cost-and-cleanup.md before
+# setting this to true; it creates 3 hourly-billed VPC interface endpoints.
+# enable_ssm_vpc_endpoints = true

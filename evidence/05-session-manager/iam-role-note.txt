@@ -1,0 +1,1 @@
+EC2 instance profile: aws-network-lab-ec2-ssm-profile (role aws-network-lab-ec2-ssm-role, policy AmazonSSMManagedInstanceCore) attached to both instances.

@@ -1,0 +1,9 @@
+# captured 2026-09-15T21:11:39Z
+NACLs are stateless: a reply to an outbound (or inbound) request is only
+allowed if a rule explicitly permits it in the OPPOSITE direction too.
+For a client on the internet -> public EC2:80 request, the servers reply
+goes out from port 80 to the clients ephemeral source port (Linux default
+range 32768-60999, see /proc/sys/net/ipv4/ip_local_port_range on the EC2).
+The current NACL uses "allow all" rules (protocol -1) so this is not
+observable yet - it becomes observable once the NACL fault-injection test
+(scripts/inject-nacl-failure.sh) narrows the rules to specific ports.

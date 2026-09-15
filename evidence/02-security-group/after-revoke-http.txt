@@ -1,0 +1,10 @@
+# captured 2026-09-16T21:05:13Z (retested after initial capture, see note)
+# Immediately after `aws ec2 revoke-security-group-ingress` returned, a curl
+# attempt still got http_status=200 (SG rule change had not yet propagated to
+# the packet-filtering layer - observed real propagation delay, roughly 10-20s).
+# Retested every ~9s for 5 attempts after the initial revoke; result stabilized to:
+attempt 1: 21:04:36 -> curl: (28) Connection timed out after 6002 milliseconds / http_status=000
+attempt 2: 21:04:46 -> curl: (28) Connection timed out after 6012 milliseconds / http_status=000
+attempt 3: 21:04:55 -> curl: (28) Connection timed out after 6007 milliseconds / http_status=000
+attempt 4: 21:05:04 -> curl: (28) Connection timed out after 6003 milliseconds / http_status=000
+attempt 5: 21:05:13 -> curl: (28) Connection timed out after 6015 milliseconds / http_status=000

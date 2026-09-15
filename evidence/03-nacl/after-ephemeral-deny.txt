@@ -1,0 +1,19 @@
+# captured 2026-09-16T21:07:27Z (retested after initial capture, see note)
+# Immediately after the NACL rule was created, a curl attempt still got
+# http_status=200 (rule change had not yet propagated - NACL propagation
+# appears faster than SG propagation in this run, taking effect by the
+# first retest ~15s later). Retested every ~9s for 5 attempts, all blocked:
+attempt 1: 21:06:51 -> curl: (28) Connection timed out after 6004 milliseconds / http_status=000
+attempt 2: 21:07:00 -> curl: (28) Connection timed out after 6004 milliseconds / http_status=000
+attempt 3: 21:07:09 -> curl: (28) Connection timed out after 6005 milliseconds / http_status=000
+attempt 4: 21:07:18 -> curl: (28) Connection timed out after 6001 milliseconds / http_status=000
+attempt 5: 21:07:27 -> curl: (28) Connection timed out after 6004 milliseconds / http_status=000
+
+# This confirms NACL statelessness: inbound tcp/80 is still ALLOWED (rule 100),
+# but the HTTP server's reply (source port 80 -> client ephemeral port) is
+# blocked by the new outbound DENY rule 90 on tcp/1024-65535. The SYN reaches
+# the server, the server replies, but the reply never gets back out - which is
+# why this manifests as a client-side connection TIMEOUT (not an immediate
+# refusal), distinct from the SG-deny case tested earlier where the SYN itself
+# was never permitted in and curl also timed out but via a different path
+# (see docs/troubleshooting.md comparison table for the distinguishing evidence).
