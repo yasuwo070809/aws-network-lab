@@ -1,0 +1,12 @@
+# aws-network-lab current status
+# captured (UTC): 2026-09-15T21:45:25Z
+# read-only check - no AWS resources were changed by this script
+
+## Deployment status: NOT DEPLOYED
+terraform output returned no vpc_id - Phase 1 infrastructure is not
+currently applied (terraform.tfstate has 0 resources, or no state).
+Run 'terraform apply' under terraform/ to redeploy before re-running
+this script for a live check.
+
+## Last known resource IDs (for reference only, NOT re-verified here)
+See docs/resource-inventory.md for the last-deployment snapshot.

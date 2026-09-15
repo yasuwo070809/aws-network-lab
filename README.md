@@ -34,6 +34,25 @@ flowchart TB
 
 詳細版は `docs/architecture.md` を参照。
 
+## Phase 1 検証ステータス
+
+> 2026-09-16のPhase 1検証実施時点の記録。検証完了後、AWSリソースは`terraform destroy`済み(現在AWS上に稼働中のリソースはなし)。詳細は各リンク先を参照。
+
+| No. | 検証テーマ | 構築状態 | 正常性試験 | 障害試験 | 復旧確認 | 結果 |
+|---|---|---|---|---|---|---|
+| 1 | Public EC2の構築 | 🟢 | 🟢 | ⬜ | 🟢 | PASS |
+| 2 | Security Group | 🟢 | 🟢 | 🟢 | 🟢 | PASS |
+| 3 | NACL | 🟢 | 🟢 | 🟡 | 🟢 | PASS(一部未実施) |
+| 4 | Private EC2への接続 | 🟢 | 🟢 | ⚪ | 🟢 | PASS |
+| 5 | Session Manager接続 | 🟢 | 🟢 | ⚪ | ⚪ | PASS |
+| 6 | VPC Flow Logs解析 | 🟢 | 🟢 | 🟢 | 🟢 | PASS |
+
+凡例: ⬜未着手 / 🟡構築済み・未検証 / 🟢PASS / 🔴FAIL / ⚪対象外。**未実施の試験(NACL HTTP受信拒否、Webサービス停止)は推測でPASSにせず⬜のまま記載している。**
+
+- 詳細な試験項目・実測結果: [`docs/status-sheet.md`](docs/status-sheet.md)
+- 現在/検証当時のAWSリソース一覧: [`docs/resource-inventory.md`](docs/resource-inventory.md)
+- 最新状態の再確認(読み取り専用): `scripts/update-status.sh` → `evidence/current-status.txt`
+
 ## 各AWSサービスの役割
 
 VPC / Subnet / IGW / Route Table / Security Group / NACL / EIP / EC2 / IAM Role / VPCエンドポイント / Flow Logsそれぞれの役割は `docs/architecture.md` の表を参照。
